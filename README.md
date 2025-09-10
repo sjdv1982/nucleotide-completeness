@@ -2,6 +2,12 @@
 
 Analyses of the completeness of RNA at the dinucleotide and trinucleotide level.
 
+## Instructions
+
+This repo contains code in submodules. To check them out, do:
+
+`git submodule update --init --recursive --progress`
+
 ## Synopsis
 
 We are interested in the question whether every possible RNA fragment conformation has been seen in the PDB. Here we present evidence that this is so at the dinucleotide level, but not at the trinucleotide level.
