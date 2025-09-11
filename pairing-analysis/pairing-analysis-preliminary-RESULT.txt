@@ -1,0 +1,69 @@
+So it seems that the PDB is (probably, mostly) complete at the dinucleotide level, 
+but not quite at the trinucleotide level.
+What are the implications for modeling? Quite a lot, actually.
+
+As an example, I will take AAA trinucleotides, and analyze how they are composed of pairs of AA dinucleotides.
+For this, I will go down to the 0.5A level: I will explain the reason a bit later.
+
+There are 36.6k unique trinucleotide conformations in our PDB dataset.
+At 0.5A precision, they cluster into 5.1k primary conformers (primary = seen in more than one PDB), 
+and these conformers account for 78 % of all unique trinucleotide conformers (i.e. they are within 0.5A). 
+An additional 12 % of the unique trinucleotide conformers is within 1A of a primary conformer 
+(=> total: 90 %).
+Therefore, you can't say that the PDB is *complete* at the 0.5 A trinuc level, but for 90 % of the cases, 
+you can describe the available conformational space (of AAA trinucleotides) pretty well 
+using those 5.1k primary conformers.
+The reason I go down to the 0.5A level is that the analysis becomes *very clean* (this is not so at the 1A level!).
+
+- In almost all cases, a primary trinucleotide consists of a pair of two primary dinucleotides that fit *very well* 
+to the trinucleotide (of all primary trinucleotides, within 0.5 A: 99.1 %; within 1A: 99.9%). 
+- In almost all cases, the pair of dinucleotides has a *good or excellent* overlap, 
+   (upon fitting onto their common nucleotide (the middle of the three), the RMSD is <0.5A for 90%; 98.4% within 0.7A; all 99.1% under 0.87A)
+- The fitted pair of dinucleotides is free of clashes (only 0.2 % has atom-atom clashes under 2 A).
+
+These three points imply that, at the 0.5A level: 
+
+******************************************************************************************************************************************
+    primary trinucleotides (that cover 90 % of the cases) can be synthetically generated from superimposed pairs of primary dinucleotides
+******************************************************************************************************************************************
+
+This means:
+******************************************************************************************************************************************
+    *If* we can distinguish between real and unreal pairs, we could grow chains *very* efficiently from an initial dinucleotide anchor.
+******************************************************************************************************************************************
+
+To keep in mind: at the 0.5A level, the AA primary dinucleotide library is about 6k.
+The primary AAA *trinucleotide* library is actually *smaller* than this!!
+Therefore, while there are *some* AA dinucleotides that are part of many AAA trinucleotides 
+(the highest is 450, the second highest is 220, there are 27 out of 6.1k that are in >=30), *on average*, a dinucleotide
+participates in (less than) *one* primary trinucleotide. In other words, a branching factor of *one*.
+So, given the 5.1k correct pairings and one initial dinucleotide anchor, 
+you could simply superimpose dinucleotides onto the previous dinucleotide, and the number of possible chains will *not* quickly explode.
+
+The problem is of course: 
+- We are still only at 78-90 % of the primary trinucleotide library. 
+- We know that the primary trinucleotide library is incomplete
+- We are most interested in single-stranded, which means uncommon conformations.
+
+So it is an open question to try and prove that a certain dinucleotide pairing is *not* possible (especially for single-stranded).
+Note that there are 6.1k*6.1k=36 million possible pairings. 
+
+- The obvious thing to do is to look at *compatibility* RMSD
+  (superimposing onto the common nucleotide; note that this number is always lower or equal to the *overlap* RMSD)
+There are 2 million (1 out of 18) pairings under 0.5A, and about 5 million (1 out of 7) under 0.7A.
+- Internal clashes are essentially absent (0.71 % for pairings under 0.5A, 1.15% for under 0.7A)
+- I did some statistical analyses and I think that in a few dozen of cases, a certain pairing can be ruled out on 
+statistical grounds, but eliminating a few dozen won't narrow things down a lot.
+
+So, when we build chains, the best thing we can do is: 
+- consider all (n, n+1) fragment positions
+- randomly select 78-90% of these positions, allow 5.1k allowed pairings for them (= the known trinucleotides),
+- consider all 2 or 5 million pairings for the remaining fragment positions. 
+
+Then build chains, and then repeat with a different random seed. 
+Seems like color coding...
+
+Alternative: hybrid chain assembly from dinucleotide/trinucleotide fragments, with 78 % trinucleotides 
+(a bit more with the extension library).
+At least the analysis above proves that fitting dinucleotides onto trinucleotides is clean (at 0.5A)!
+(And from another analysis, I have shown that the branching factor for trinucleotides is 40 to 120).

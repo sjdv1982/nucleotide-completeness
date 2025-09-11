@@ -20,13 +20,11 @@ all_fits = []
 all_terminality = []
 allcodes = set()
 for motif in motifs:
-    fit_file = f"library/intermediate/lib-{lib}-{motif}-closest-fit.txt"
+    fit_file = f"nucleotide-library/output/closest-fit/{lib}-{motif}.txt"
     fits = np.loadtxt(fit_file, dtype=float)[:, 1]
-    terminality_file = f"lib-{lib}-nonredundant-filtered-{motif}-terminality.txt"
+    terminality_file = f"output/{lib}-{motif}-terminality.txt"
     terminality = np.loadtxt(terminality_file, dtype=bool)
-    origin_file = (
-        f"library/intermediate/lib-{lib}-nonredundant-filtered-{motif}-origin.txt"
-    )
+    origin_file = f"nucleotide-fragments/{lib}/origin/{motif}.txt"
 
     origins = []
     for l in open(origin_file).readlines():
@@ -57,7 +55,7 @@ for motif in motifs:
     all_origins.append(origins)
 
 seqlen = {}
-segment_file = f"library/intermediate/allpdb-segments.txt"
+segment_file = f"nucleotide-fragments/segments.txt"
 for l in open(segment_file).readlines():
     if not len(l.strip()):
         continue

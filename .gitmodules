@@ -4,3 +4,6 @@
 [submodule "nucleotide-fragments"]
 	path = nucleotide-fragments
 	url = https://gitlab.inria.fr/sdevries/nucleotide-fragments
+[submodule "nucleotide-library"]
+	path = nucleotide-library
+	url = https://github.com/sjdv1982/nucleotide-library
