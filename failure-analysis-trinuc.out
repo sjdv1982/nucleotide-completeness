@@ -1,27 +1,27 @@
-Number of conformers:                   237879
+Number of conformers:                   284199
 
-Number of >1A failures:                 16042 (6.7 % of all)
-Number of terminal-only conformers:     20352 (8.6 % of all)
-Number of >1A terminal-only failures:   2634
-    12.9 % of terminal-only conformers
-    16.4 % of failures
-
-Distribution of failures among most prevalent PDB codes
-    Worst 1 % of PDBs: 551, 3.4 % of all failures, 0.3 % of all fragments
-    Worst 2 % of PDBs: 873, 5.4 % of all failures, 0.4 % of all fragments
-    Worst 5 % of PDBs: 2733, 17.0 % of all failures, 2.0 % of all fragments
-    Worst 10 % of PDBs: 5024, 31.3 % of all failures, 4.8 % of all fragments
-    Remaining 90 %: 11018 failures among 226433 fragments
-        4.9 % of all fragments in those structures
-        68.7 % of all failures
-        Those structures contain 95.2 % of all fragments
+Number of >1A failures:                 19477 (6.9 % of all)
+Number of terminal-only conformers:     24425 (8.6 % of all)
+Number of >1A terminal-only failures:   3094
+    12.7 % of terminal-only conformers
+    15.9 % of failures
 
 Distribution of failures among most prevalent PDB codes
-    Worst 1 % of PDBs: 1082, 8.1 % of all non-terminal-only failures, 0.8 % of all non-terminal-only fragments
-    Worst 2 % of PDBs: 2053, 15.3 % of all non-terminal-only failures, 1.8 % of all non-terminal-only fragments
-    Worst 5 % of PDBs: 4052, 30.2 % of all non-terminal-only failures, 4.5 % of all non-terminal-only fragments
-    Worst 10 % of PDBs: 6548, 48.8 % of all non-terminal-only failures, 9.8 % of all non-terminal-only fragments
-    Remaining 90 %: 6860 failures among 196260 fragments
-        3.5 % of all non-terminal-only fragments in those structures
-        51.2 % of all non-terminal-only failures
-        Those structures contain 90.2 % of all non-terminal-only fragments
+    Worst 1 % of PDBs: 602, 3.1 % of all failures, 0.2 % of all fragments
+    Worst 2 % of PDBs: 1009, 5.2 % of all failures, 0.4 % of all fragments
+    Worst 5 % of PDBs: 3440, 17.7 % of all failures, 2.2 % of all fragments
+    Worst 10 % of PDBs: 7262, 37.3 % of all failures, 6.4 % of all fragments
+    Remaining 90 %: 12215 failures among 266031 fragments
+        4.6 % of all fragments in those structures
+        62.7 % of all failures
+        Those structures contain 93.6 % of all fragments
+
+Distribution of failures among most prevalent PDB codes
+    Worst 1 % of PDBs: 1297, 7.9 % of all non-terminal-only failures, 0.8 % of all non-terminal-only fragments
+    Worst 2 % of PDBs: 2535, 15.5 % of all non-terminal-only failures, 1.9 % of all non-terminal-only fragments
+    Worst 5 % of PDBs: 5388, 32.9 % of all non-terminal-only failures, 5.3 % of all non-terminal-only fragments
+    Worst 10 % of PDBs: 8675, 53.0 % of all non-terminal-only failures, 11.2 % of all non-terminal-only fragments
+    Remaining 90 %: 7708 failures among 230779 fragments
+        3.3 % of all non-terminal-only fragments in those structures
+        47.0 % of all non-terminal-only failures
+        Those structures contain 88.8 % of all non-terminal-only fragments
